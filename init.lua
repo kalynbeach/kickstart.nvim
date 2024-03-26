@@ -1,6 +1,6 @@
 --[[
 
-t=====================================================================
+=====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
 ========                                    .-----.          ========
@@ -744,15 +744,19 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     -- 'folke/tokyonight.nvim',
-    'mcchrish/zenbones.nvim',
     -- 'olivercederborg/poimandres.nvim',
-    -- 'metalelf0/jellybeans-nvim',
+    -- 'mcchrish/zenbones.nvim',
+    'metalelf0/jellybeans-nvim',
     lazy = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     dependencies = {
       'rktjmp/lush.nvim',
     },
     -- config = function()
+    -- vim.g.zenwritten = {
+    -- darkness = 'stark',
+    -- solid_line_nr = true,
+    -- }
     --   -- require('tokyonight').setup {
     --   --   style = 'night',
     --   --   on_colors = function(colors)
@@ -775,7 +779,8 @@ require('lazy').setup({
 
       vim.cmd 'set termguicolors'
       vim.cmd 'set background=dark'
-      vim.cmd.colorscheme 'zenwritten'
+      vim.cmd.colorscheme 'jellybeans-nvim'
+      -- vim.cmd.colorscheme 'zenwritten'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
