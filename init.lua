@@ -745,12 +745,23 @@ require('lazy').setup({
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     -- 'folke/tokyonight.nvim',
     -- 'olivercederborg/poimandres.nvim',
-    'mcchrish/zenbones.nvim',
     -- 'metalelf0/jellybeans-nvim',
+    -- 'mcchrish/zenbones.nvim',
+    'catppuccin/nvim',
+    name = 'catppuccin',
     lazy = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     dependencies = {
       'rktjmp/lush.nvim',
+    },
+    opts = {
+      color_overrides = {
+        mocha = {
+          base = '#000000',
+          mantle = '#000000',
+          crust = '#000000',
+        },
+      },
     },
     -- config = function()
     -- vim.g.zenwritten = {
@@ -779,7 +790,8 @@ require('lazy').setup({
 
       vim.cmd 'set termguicolors'
       vim.cmd 'set background=dark'
-      vim.cmd.colorscheme 'zenwritten'
+      -- vim.cmd.colorscheme 'zenwritten'
+      vim.cmd.colorscheme 'catppuccin-mocha'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
