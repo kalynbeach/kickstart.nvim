@@ -759,10 +759,17 @@ require('lazy').setup({
       color_overrides = {
         mocha = {
           base = '#070707',
-          mantle = '#070707',
-          crust = '#070707',
+          mantle = '#0a0a0a',
+          crust = '#0c0c0c',
         },
       },
+      -- highlight_overrides = {
+      --   mocha = function (mocha)
+      --     return {
+      --
+      --     }
+      --   end,
+      -- },
     },
     -- config = function()
     -- vim.g.zenwritten = {
@@ -789,8 +796,8 @@ require('lazy').setup({
       -- vim.cmd 'colorscheme poimandres'
       -- vim.cmd.colorscheme 'jellybeans-nvim'
 
-      vim.cmd 'set termguicolors'
-      vim.cmd 'set background=dark'
+      -- vim.cmd 'set termguicolors'
+      -- vim.cmd 'set background=dark'
       -- vim.cmd.colorscheme 'zenwritten'
       vim.cmd.colorscheme 'catppuccin-mocha'
 
