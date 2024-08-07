@@ -788,24 +788,56 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     -- 'folke/tokyonight.nvim',
-    'slugbyte/lackluster.nvim',
+    -- 'slugbyte/lackluster.nvim',
+    'vague2k/vague.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+
+      -- local tokyonight = require 'tokyonight'
+      --
+      -- tokyonight.setup {
+      --   style = 'night',
+      --   styles = {
+      --     functions = {},
+      --   },
+      --   on_colors = function(colors)
+      --     colors.bg = colors.bg_dark
+      --   end,
+      --   on_highlights = function(highlights, colors) end,
+      -- }
+      --
       -- vim.cmd.colorscheme 'tokyonight-night'
 
-      local lackluster = require 'lackluster'
+      -- local lackluster = require 'lackluster'
 
-      lackluster.setup {
-        tweak_syntax = {
-          comment = lackluster.color.gray4,
+      -- lackluster.setup {
+      --   tweak_syntax = {
+      --     comment = lackluster.color.gray4,
+      --   },
+      --   disable_plugin = {},
+      -- }
+
+      -- vim.cmd.colorscheme 'lackluster-hack'
+
+      local vague = require 'vague'
+
+      vague.setup {
+        style = {
+          -- functions = 'bold',
+          -- builtin_types = 'bold',
+          -- builtin_functions = 'bold',
         },
-        disable_plugin = {},
+        colors = {
+          bg = '#090909',
+          -- func = "#be8c8c",
+          func = '#c7c7d4',
+        },
       }
 
-      vim.cmd.colorscheme 'lackluster-hack'
+      vim.cmd.colorscheme 'vague'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
