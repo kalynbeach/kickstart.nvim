@@ -830,13 +830,36 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     -- 'folke/tokyonight.nvim',
-    -- 'slugbyte/lackluster.nvim',
-    'vague2k/vague.nvim',
+    'slugbyte/lackluster.nvim',
+    -- 'vague2k/vague.nvim',
+    -- 'bettervim/yugen.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+
+      local lackluster = require 'lackluster'
+
+      lackluster.setup {
+        tweak_background = {
+          normal = lackluster.color.gray1,
+        },
+        tweak_syntax = {
+          comment = lackluster.color.gray4,
+          -- type = lackluster.color.gray8,
+          -- type = lackluster.color.green,
+        },
+        -- tweak_highlight = {
+        --   ['@function'] = {
+        --     overwrite = true,
+        --     bold = true,
+        --   },
+        -- },
+        disable_plugin = {},
+      }
+
+      vim.cmd.colorscheme 'lackluster-hack'
 
       -- local tokyonight = require 'tokyonight'
       --
@@ -853,35 +876,24 @@ require('lazy').setup({
       --
       -- vim.cmd.colorscheme 'tokyonight-night'
 
-      -- local lackluster = require 'lackluster'
-
-      -- lackluster.setup {
-      --   tweak_syntax = {
-      --     comment = lackluster.color.gray4,
+      -- local vague = require 'vague'
+      --
+      -- vague.setup {
+      --   style = {
+      --     -- functions = 'bold',
+      --     -- builtin_types = 'bold',
+      --     -- builtin_functions = 'bold',
       --   },
-      --   disable_plugin = {},
+      --   colors = {
+      --     bg = '#0b0b0b',
+      --     fg = '#feffff',
+      --     -- fg = '#cdcdcd',
+      --     -- func = "#be8c8c",
+      --     -- func = '#c7c7d4',
+      --   },
       -- }
-
-      -- vim.cmd.colorscheme 'lackluster-hack'
-
-      local vague = require 'vague'
-
-      vague.setup {
-        style = {
-          -- functions = 'bold',
-          -- builtin_types = 'bold',
-          -- builtin_functions = 'bold',
-        },
-        colors = {
-          bg = '#0b0b0b',
-          fg = '#feffff',
-          -- fg = '#cdcdcd',
-          -- func = "#be8c8c",
-          func = '#c7c7d4',
-        },
-      }
-
-      vim.cmd.colorscheme 'vague'
+      --
+      -- vim.cmd.colorscheme 'vague'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
@@ -928,6 +940,7 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
+
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -952,6 +965,18 @@ require('lazy').setup({
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+  },
+
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('lualine').setup {
+        options = {
+          theme = 'lackluster',
+        },
+      }
+    end,
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
