@@ -844,6 +844,8 @@ require('lazy').setup({
       lackluster.setup {
         tweak_background = {
           normal = lackluster.color.gray1,
+          popup = lackluster.color.gray1,
+          telescope = lackluster.color.gray1,
         },
         tweak_syntax = {
           comment = lackluster.color.gray4,
