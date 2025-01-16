@@ -845,8 +845,10 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    -- 'folke/tokyonight.nvim',
+    -- 'bluz71/vim-moonfly-colors',
+    -- 'rebelot/kanagawa.nvim',
     'slugbyte/lackluster.nvim',
+    -- 'folke/tokyonight.nvim',
     -- 'vague2k/vague.nvim',
     -- 'bettervim/yugen.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -855,29 +857,76 @@ require('lazy').setup({
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
 
+      -- vim.cmd.colorscheme 'moonfly'
+
+      -- local kanagawa = require 'kanagawa'
+      --
+      -- kanagawa.setup {
+      --   compile = false, -- enable compiling the colorscheme
+      --   undercurl = true, -- enable undercurls
+      --   commentStyle = { italic = false },
+      --   functionStyle = {},
+      --   keywordStyle = { italic = false },
+      --   statementStyle = { bold = true },
+      --   typeStyle = {},
+      --   transparent = false, -- do not set background color
+      --   dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+      --   terminalColors = true, -- define vim.g.terminal_color_{0,17}
+      --   colors = { -- add/modify theme and palette colors
+      --     palette = {},
+      --     theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+      --   },
+      --   overrides = function(colors) -- add/modify highlights
+      --     return {}
+      --   end,
+      --   theme = 'wave', -- Load "wave" theme when 'background' option is not set
+      --   background = { -- map the value of 'background' option to a theme
+      --     dark = 'dragon', -- try "dragon" !
+      --     light = 'lotus',
+      --   },
+      -- }
+      --
+      -- vim.cmd.colorscheme 'kanagawa'
+
       local lackluster = require 'lackluster'
 
       lackluster.setup {
         tweak_background = {
           normal = lackluster.color.gray1,
-          popup = lackluster.color.gray1,
-          telescope = lackluster.color.gray1,
+          menu = '#101010',
+          telescope = '#101010',
+          popup = '#101010',
         },
         tweak_syntax = {
+          -- builtin = lackluster.color.gray5,
+          -- builtin = lackluster.color.blue,
           comment = lackluster.color.gray4,
-          -- type = lackluster.color.gray8,
+          keyword = lackluster.color.blue,
+          keyword_return = lackluster.color.blue,
+          keyword_exception = lackluster.color.blue,
+          string = lackluster.color.green,
           -- type = lackluster.color.green,
         },
         -- tweak_highlight = {
         --   ['@function'] = {
-        --     overwrite = true,
+        --     overwrite = false,
         --     bold = true,
         --   },
         -- },
         disable_plugin = {},
       }
 
-      vim.cmd.colorscheme 'lackluster-hack'
+      -- require('nvim-web-devicons').setup {
+      --   color_icons = false,
+      --   override = {
+      --     ['default_icon'] = {
+      --       color = lackluster.color.gray4,
+      --       name = 'Default',
+      --     },
+      --   },
+      -- }
+
+      vim.cmd.colorscheme 'lackluster-mint'
 
       -- local tokyonight = require 'tokyonight'
       --
